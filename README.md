@@ -1,3 +1,7 @@
+**Go to website/index.html for the blog post**
+
+Shaurya Agrawal, Jake Austin
+
 Downloaded some sample trajectories from https://theairlab.org/tartanair-dataset/ for testing this.
 
 These are synthetic scenes that allow me to synthetically create equivariant features from the pointmaps themselves, but in principle 
