@@ -1,0 +1,20 @@
+name: ace00
+channels:
+  - conda-forge
+  - defaults
+  - nvidia
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - kornia
+      - viser
+      - torch
+      - pillow
+      - notebook
+      - tensorboard
+      - tyro
+      - timm==0.3.2
+      - matplotlib
+      - tartanair
+      - minio<=7.2.18

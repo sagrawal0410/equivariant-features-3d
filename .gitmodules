@@ -1,0 +1,6 @@
+[submodule "third_party/ace"]
+	path = third_party/ace
+	url = https://github.com/nianticlabs/ace.git
+[submodule "third_party/mae"]
+	path = third_party/mae
+	url = https://github.com/facebookresearch/mae.git

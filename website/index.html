@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>main</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<h1 id="sec:intro">Introduction</h1>
+<p>Visual deep learning has yet to have a “GPT” moment. Visual deep
+learning has yet to have a “GPT” moment. The GPT revelation was that
+most NLP tasks can be unified under the input/output behavior of a
+decoder-only transformer <span class="citation"
+data-cites="radford2019language">(Radford et al. 2019)</span> and
+zero-shotted or few-shotted from minimal data after pretraining on
+unlabeled internet data. The vision community has yet to find an
+unzupervised analog that enables zero-shotting of 3D reasoning. While
+there are promising avenues with video models <span class="citation"
+data-cites="wiedemer2025videomodelszeroshotlearners">(Wiedemer et al.
+2025)</span>, vision lacks a comparable formulation: the inputs are 2D
+RGB pixels, while the outputs we care about for 3D reasoning, metric
+depths, pointmaps, surface normals, camera poses, live in a different
+space and must satisfy hard geometric constraints. Simply scaling up
+unlabeled internet images or videos is unlikely to produce zero-shot
+metric 3D estimates, both because quantities like depth and scene
+coordinates are not naturally expressed as RGB values and because there
+is no web-scale corpus where each pixel is annotated with accurate depth
+or pose. By contrast, internet text already contains implicit
+supervision for tasks such as summarization, sentiment analysis, and
+classification. High-quality 3D supervision instead requires active
+sensors, multi-view reconstruction, or depth cameras, which are
+expensive and scene-specific.</p>
+<p>In this project, we seek progress on a GPT moment for dense 3D
+understanding. We demonstrate that with dense descriptive 3D equivariant
+input features, even if high dimensional / extremely complex / highly
+nonlinear, can allow unsupervised depth, pointmap, and camera estimation
+without any ground truth. While our 3D equivariant features used in this
+project are largely synthetic, we see this as a stepping stone to using
+off-the-shelf featurizers.</p>
+<h1 id="related-works">Related Works</h1>
+<p>In this project, we draw primarily from three families of work: (1)
+3D equivariance in visual feature learning, (2) scene coordinate
+regression methods for visual relocalization and mapping (in particular
+the ACE <span class="citation" data-cites="ace">(Brachmann et al.
+2023)</span> line of work), and (3) underconstrained 3D estimation
+methods where supervision is provided only through reprojection or
+rendering objectives. We position our approach at the intersection of
+these areas: we assume access to 3D-equivariant features, adopt a scene
+coordinate regression–style architecture, and study how far an
+underconstrained, label-free objective can be pushed when combined with
+strong equivariance structure.</p>
+<p><strong>3D Equivariance</strong> Let’s start with a nontechnical
+definition of 3D Equivariance: a function (or in our case, pixel aligned
+featurizer) is 3D equivariant if any changes in the image due to camera
+motion are reflected by identical changes in the output feature map.
+More formally, if an transform <span class="math inline">\(f\)</span> is
+equivariant to all transforms <span class="math inline">\(g\in
+G\)</span> of an image <span class="math inline">\(I\)</span>, it obeys
+the following relationship <span class="math display">\[f(g \cdot I) = g
+\cdot f(I).\]</span></p>
+<p>In our case, <span class="math inline">\(G\)</span> is the set of
+operations that unprojects the image into 3D space, applies a rigid body
+<span class="math inline">\(\mathrm{SE}3\)</span> transform, and
+reprojects the points onto a new image plane, and the relationship is
+only expected to hold where there is covisibility between cameras.</p>
+<p>Many works have observed that large unsupervised visual models like
+DINO <span class="citation"
+data-cites="oquab2024dinov2learningrobustvisual">(Oquab et al.
+2024)</span>, MAE <span class="citation"
+data-cites="he2021maskedautoencodersscalablevision">(He et al.
+2021)</span>, CLIP <span class="citation" data-cites="clip">(Radford et
+al. 2021)</span> have nontrivial 3D equivariance properties <span
+class="citation"
+data-cites="banani2024probing3dawarenessvisual you2025multiviewequivarianceimproves3d">(Banani
+et al. 2024; You et al. 2025)</span>. This is in line with more generic
+semantic correspondences literature <span class="citation"
+data-cites="luo2024diffusionhyperfeaturessearchingtime tang2023emergentcorrespondenceimagediffusion zhang2024tellingleftrightidentifying">(Luo
+et al. 2024; Tang et al. 2023; Zhang et al. 2024)</span> demonstrating
+that 2D semantic correspondences can be formed across photometrically
+and geometrically distinct objects of the same category.</p>
+<p>From semantic correspondences literature, we have seen that this does
+have the caveat that the descriptiveness of these features can sometimes
+be questionable. It has been cataloged that these large unsupervised
+visual models exhibit a lot of ambiguity in their feature outputs, being
+often unable to provide descriptive features to discern through
+symmetries and repeated instances of objects / object parts present in
+images <span class="citation"
+data-cites="zhang2024tellingleftrightidentifying">(Zhang et al.
+2024)</span>. This shows that while these features often have nice
+equivariance properties, they are often not descriptive enough to
+differentiate structures found within images. Obtaining features which,
+without explicit 3D supervision, are more 3D equivariant and more
+descriptive remains an open and important question within the
+community.</p>
+<p>While in this work, for simplicity, we use primarily synthetically
+generated features, we see this line of work and its continual
+improvements as a means to scale up our approach and make it truly
+unsupervised instead of needing to start from ground truth 3D
+equivariant features.</p>
+<p><strong>Scene Coordinate Regression</strong> For the technical
+aspects of this paper, we draw from Accelerated Coordinate Embedding
+<span class="citation" data-cites="ace">(Brachmann et al. 2023)</span>
+(ACE), which is a method that ingests many posed images of a scene, and
+regresses directly a pointmap estimator for images of that scene. Images
+are passed through 1) a pretrained frozen CNN backbone and 2) a pointmap
+head made of 1x1 convolutions. The stunning thing about ACE is that the
+only loss placed on the pointmap regression head’s ouptuts is that its
+3D point predictions need to reproject back onto the camera at the
+correct location (hence why the input images need to be posed). This is
+very underconstrained on paper, because if the pointmap outputs 3D
+coordinates at any depth along the ray, it will achieve zero loss.</p>
+<p>ACEZero <span class="citation" data-cites="acezero">(Brachmann et al.
+2024)</span> is a follow up work which draws from COLMAP <span
+class="citation" data-cites="colmap">(Schönberger and Frahm 2016)</span>
+and classical incremental scene optimization. It requires a single depth
+image to start from, and alternates between 1) training a 1x1
+convolution scene regression head on top of frozen image features 2)
+relocalizing the images with RANSAC from the current scene estimate.
+This alternating optimization helps resolve some of the degeneracies of
+the reprojection loss but makes the pipeline tightly coupled to
+iterative pose estimation and a depth-based initialization. As a result,
+it is not an end-to-end feed-forward deep learning method, and the
+reliance on an initial depth frame means it is not fully unsupervised or
+prior-free in the sense we aim for in this project.</p>
+<p><strong>Underconstrained 3D</strong> In general, many works like NeRF
+<span class="citation"
+data-cites="mildenhall2020nerfrepresentingscenesneural">(Mildenhall et
+al. 2020)</span> exist where the loss function is underconstrained for
+the full 3D scene reconstruction that we desire. NeRF is a case, not
+unlike ACE, where the only thing we care about is whether the
+reprojection of the scene matches what we would expect based on our
+posed images. NeRF places no constraints on how far away from the camera
+the actual scene structure is, simply that the scene looks correct when
+rendered out, and in principle there are shape–appearance tradeoffs that
+can produce nearly identical renderings. We later draw on similarities
+between our work and these underconstrained 3D works for justification
+of why we expect to achieve convergence.</p>
+<h1 id="method">Method</h1>
+<figure id="fig:acemethod">
+<embed src="graphics/method/system_old.pdf" />
+<figcaption>ACE architecture diagram, we follow the same paradigm,
+substituting in 3D equivariant frozen features (ablating whether adding
+CNN refinement layers works or not) for the frozen CNN backbone in ACE,
+using our reformulation of the ACE loss, and allowing the camera pose to
+be a free variable of optimization.</figcaption>
+</figure>
+<p>In our method, we ingest high-dimensional and highly nonlinear
+pixel-aligned feature maps for a single scene, and solve for a pointmap
+estimation head and directly optimize for raw cameras and intrinsics
+over the entire trajectory (as opposed to a prediction head). We
+randomly initialize all these quantities with random numbers, optimizing
+only using a reformulation of the ACE loss without requiring any
+hand-crafted regularizers. This is distinct from the original ACE
+formulation where the cameras were fixed ahead of time in the correct
+location with the correct intrinsics.</p>
+<p>The motivation for the design choices comes from 1) the improving 3D
+equivariance properties that emerge from large unsupervised vision
+models and the belief that we are close to having excellent unsupervised
+mappers from raw pixels to high dimensional 3D equivariant features 2)
+ACE convergence is guaranteed for 3D equivariant features 3) we want an
+algorithm that is compatible with end-to-end deep learning and can
+provide clean gradients onto our 3D estimations from any initialization
+without any non-differentiable classical components line RANSAC (which
+ACE / ACEZero employ).</p>
+<p><strong>Loss Function</strong> We reformulate the ACE loss to avoid
+using reprojection, instead opting for a ray-based loss. For a single
+camera, we define define the camera as <span class="math inline">\((f,
+R, \mathbf{t})\)</span>, and our scene coordinates as <span
+class="math inline">\(\mathbf{p}\)</span>, which when warped into camera
+coordinates become <span class="math inline">\(\mathbf{p}_c(R,
+\mathbf{t})\)</span>. We minimize the angle between the observed rays
+from our 3D pointmap estimate and camera center in camera coordinates
+<span class="math inline">\(\hat{\textbf{r}}(R, \textbf{t},
+\textbf{p})\)</span>, and the camera rays which are the unprojected 2D
+coordinates <span class="math inline">\(\textbf{r}(f)\)</span> in camera
+coordinates.</p>
+<p>To avoid the singularity where the focal lengths get large and the
+scene coordinate estimates converge to a single point, we use the focal
+length to do an affine warp of our camera coordinate system. Using <span
+class="math inline">\(\text{T}=\text{diag}(f, f, 1) \in
+\mathbb{R}^{3\times3}\)</span>, we obtain <span
+class="math inline">\(\textbf{r}_w=\text{T}\textbf{r}\)</span> and <span
+class="math inline">\(\hat{\textbf{r}}_w(f, R, \textbf{t},
+\textbf{p})=\text{T}\hat{\textbf{r}}\)</span>. This specific warping of
+the camera coordinate space transforms our camera rays <span
+class="math inline">\(\textbf{r}(f)\)</span> in a way that makes them
+independent of focal length, turning <span
+class="math inline">\(\textbf{r}_w\)</span> into a standard raybundle
+that will be constant for all images.</p>
+<p><span class="math display">\[\begin{equation}
+\begin{aligned}
+&amp;\underset{\mathbf{p}(\theta), f, R, \textbf{t}}{\text{minimize}}
+&amp;&amp;\arccos(\textbf{r}_w,\hat{\textbf{r}}_w), \\
+\end{aligned}
+\end{equation}\]</span></p>
+<p>This warping of space according to <span
+class="math inline">\(\text{T}\)</span> doesn’t change the true
+minimizer as a zero loss solution, since camera and observed rays that
+were identical before the warp remain identical after the warp making an
+angle of zero, it merely removes a degenerate solution. We observe that
+this reformulation of the loss is <em>extremely</em> robust to focal
+length initialization; we can truly initialize the focal lengths to any
+value and they will converge without any extra regularization or
+heuristics.</p>
+<p><strong>Model Configuration</strong> We ablate many design choices,
+but the core architecture follows ACE; a 1x1 convolution scene
+coordinate prediction head on top of frozen features. We arbitrarily
+choose 3 1x1 convolution layers with a ReLU, but the choice isn’t
+important. We use the Adam optimizer with a static learning rate to
+optimize for our scene coordinate network, our raw camera intrinsics,
+and raw camera extrinsics (just the focal length). We train for 50k
+gradient steps, by which point the scene has usually stopped improving,
+taking an hour on a single GPU for the smallest setups, and up to a day
+on a single GPU for our largest ablations with CNN refinement on the
+feature maps.</p>
+<p><strong>Convergence</strong> It is worth discussing why this
+converges at all and the role equivariant features play. As established,
+a 3D scene coordinate prediction outputs a HxWx3 map that is 3D
+equivariant because no matter what angle you view a 3D point from, the
+3D coordinate itself in world coordinates doesn’t change. If we input 3D
+equivariant features to a MLP (or a network built of 1x1 convolutions),
+the output will always remain 3D equivariant (though the descriptiveness
+of the features may change). At a high level, making sure the input
+features are 3D equivariant ensures that our prediction head is also
+always going to be 3D equivariant, reducing the solution space
+significantly.</p>
+<p>Alternatively, there is the perspective of implicit triangulation
+that allows ACE to converge. If a 3D point has multiple rays that
+intersect it from the ground truth cameras, and the features at the 2D
+correspondence locations are all the same, the scene coordinate
+prediction MLP will always output the same 1 point for each of these
+identical 2D features. As such, the gradients constructively interfere
+and push that shared MLP output towards the point of ray intersection
+that will minimize the reprojection loss from all views.</p>
+<p>What follows from this last perspective is the clarity that when
+these features are no longer 3D equivariant, it is very very easy for
+the model to overfit and achieve zero loss. When you can unambiguously
+discern the xy pixel coordinate on the image plane that a feature
+correpsonds to, you can trivially just put all cameras at the identity,
+and always predict your meshgrids in front of the camera. When you can
+disambiguate between two views of the same point in space, it becomes
+trivial to cheat as the pointmap head to achieve zero loss.</p>
+<h1 id="experiments">Experiments</h1>
+<p><strong>Dataset</strong> We experiment on the TartanAir dataset,
+providing ground truth camera poses and depths to compare against. We
+test on only a few TartanAir scenes to prioritize doing as many method
+ablations as possible, as some of our larger ablations take many hours
+per run.</p>
+<p><strong>Metrics</strong> We measure the median depth error
+(normalizing by the median of the predicted and ground truth to avoid
+scale ambiguity), and the rotation (radians) / translation (normalized
+scene units) errors after using procrustes analysis to align the
+predicted and ground truth cameras.</p>
+<p><strong>3D Equivariant Features</strong> For the majority of our
+tests, we are using our own synthetic 3D equivariant features. These are
+obtained by taking the ground truth 3D pointmaps (a HxWx3 equivariant
+feature) and a randomly initialized 3 layer sigmoid nonlinearity MLP
+that will be thrown away after the features have been precomputed. We
+pass our ground truth pointmaps through this MLP which yields feature
+maps that are also 3D equivariant but have been scrambled in a high
+dimensional space.</p>
+<h1 id="results">Results</h1>
+<figure id="fig:main-results">
+<p><img src="graphics/main-result/render_gt.png" alt="image" /> <img
+src="graphics/main-result/render_pred.png" alt="image" /></p>
+<figcaption>The ground truth of the scene (left) and our reconstruction
+of the scene (right). The visualization is simply the superimposed
+pointmaps from every image colored with the ground truth pixel color at
+that location on the pointmap. While you can see the predicted pointmap
+is a bit wavy (we are after all asking a 3 layer relu network to
+disentangle a 3 layer sigmoid network’s outputs essentially), it is
+extremely faithful.</figcaption>
+</figure>
+<p>Our primary result is that this loss function converges and yields an
+output that is faithful to the scene despite random initialization.</p>
+<p>We demonstrate this in Fig. <a href="#fig:main-results"
+data-reference-type="ref" data-reference="fig:main-results">2</a>, where
+we visualize our reconstructed scene against the ground truth. Despite
+randomly initializing the cameras and the scene regressor, we still
+converge to the correct 3D reconstruction. You can see that our
+reconstruction is slightly wavy on account of using a sigmoid MLP to
+generate our 3D equivariant features and a relu MLP to predict the scene
+coordinates, but overall it is very faithful. Furthermore, it is
+impressive that this is all single-scene optimization, no other priors
+were used, and we did not need to train on a lot of scenes jointly to
+get these clean gradients.</p>
+<h1 id="ablations">Ablations</h1>
+<p>The basic axis along which we test is what happens to our results
+when we corrupt the 3D equivariance of the features; do we still
+converge? We ablate this primarily by corrupting our ground truth 3D
+equivariant features in 3 ways and reporting the results: 1)
+downsampling by 14x and upsampling by 14x (mimicking DINO feature
+resolution), 2) corrupting the 14x downsampled / upsampled features by
+.3 standard deviations of gaussian noise and 3) corrupting the 14x
+downsampled / upsampled features by .3 standard deviations of gaussian
+noise.</p>
+<p>We display the metrics in Fig. <a href="#fig:baseline-graphs"
+data-reference-type="ref" data-reference="fig:baseline-graphs">4</a>,
+and display some of the results qualitatively in Fig. <a
+href="#fig:baseline-visuals" data-reference-type="ref"
+data-reference="fig:baseline-visuals">3</a>. You can see that the PCA of
+the features we are working with once corrupted make it very difficult
+to discern the scene contents compared to the PCA of the original
+features. That being said, the depths seem to generally be doing the
+right thing even at these lower resolutions given the coarseness of the
+features they are predicting from.</p>
+<figure id="fig:baseline-visuals">
+<p><img src="graphics/baseline-graphs/baseline-depths.png"
+alt="image" /> <img src="graphics/baseline-graphs/baseline-feats.png"
+alt="image" /></p>
+<figcaption>We display some of our baseline runs with the depths
+estimated and the featuremaps. On the left is our feature maps / depth
+maps when we downsample and upsample the ground truth features by 14x,
+and on the right is the result we get from the default 3D equivariant
+features and the features themselves. You can see that while coarse, the
+output we get after downsampling and upsampling still looks reasonable
+when you visualize it.</figcaption>
+</figure>
+<figure id="fig:baseline-graphs">
+<p><img src="graphics/baseline-graphs/baseline-depth-error.png"
+alt="image" /> <img
+src="graphics/baseline-graphs/baseline-rot-error.png" alt="image" />
+<img src="graphics/baseline-graphs/baseline-trans-error.png"
+alt="image" /></p>
+<figcaption>We plot the median depth error, the rotation error, and the
+translation error as a function of the number of iterations for our
+baseline synthetic 3D equivariant features, our features downsampled by
+14x and upsampled (mimicking DINO features which are 14x14 patches), and
+our downsampled and upsampled features corrupted by adding .3 and .5
+standard deviations of gaussian noise to the underlying feature
+map.</figcaption>
+</figure>
+<p><strong>Weight Decay</strong> We find that weight decay (AdamW) helps
+across all types of feature corruption. It doesn’t seem to change the
+end performance by much, but it does seem to improve convergence speed
+when setting weight decay to a small value of <span
+class="math inline">\(.01\)</span>.</p>
+<p><strong>Confidence Maps</strong> Following many more modern 3D vision
+papers, we also ablate adding aleatoric uncertainty to our pointmap
+estimates, and we find that it does worse across all noise scales,
+displayed in Tab <a href="#tab:confidence" data-reference-type="ref"
+data-reference="tab:confidence">[tab:confidence]</a>.</p>
+<div class="table*">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature type</th>
+<th style="text-align: center;">No conf. maps</th>
+<th style="text-align: center;">With conf. maps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">gteqfeats</td>
+<td style="text-align: center;">0.0385</td>
+<td style="text-align: center;">0.2040</td>
+</tr>
+<tr>
+<td style="text-align: left;">gteqfeats14xdownsample</td>
+<td style="text-align: center;">0.2489</td>
+<td style="text-align: center;">0.2806</td>
+</tr>
+<tr>
+<td
+style="text-align: left;">gteqfeats14xdownsample_frozenfeatnoise.3</td>
+<td style="text-align: center;">0.1949</td>
+<td style="text-align: center;">0.2403</td>
+</tr>
+<tr>
+<td
+style="text-align: left;">gteqfeats14xdownsample_frozenfeatnoise.5</td>
+<td style="text-align: center;">0.1849</td>
+<td style="text-align: center;">0.1989</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure id="fig:refinement-graphs">
+<p><img src="graphics/refinement/refinement-vs-baseline.png"
+alt="image" /> <img src="graphics/refinement/refinement-depth.png"
+alt="image" /> <img src="graphics/refinement/refinement-loss.png"
+alt="image" /></p>
+<figcaption>We compare the baseline 3D equivariant features against an
+equivelant run where we add a CNN refinement using size 7 kernels to add
+a residual to the feature map. In theory, it should be possible for the
+residual CNN to add zero to the ground truth equivariant features and
+arrive at the same result, but it finds an incorrect solution with lower
+loss despite having worse depth estimates. This could be an indication
+of a bug in our implementation that the baseline is unable to achieve
+similarly low loss.</figcaption>
+</figure>
+<p><strong>CNN Refinement</strong> We find that adding a residual CNN
+refiner on top of our 3D-equivariant features Fig. <a
+href="#fig:refinement-graphs" data-reference-type="ref"
+data-reference="fig:refinement-graphs">5</a> does not improve them: in
+our single-scene setup, while we get good gradients on cameras and scene
+coordinates, the refiner learns a nonzero residual that slightly lowers
+the loss while worsening depth, even though zero weights would pass
+through the ground-truth equivariant features that we know lead to
+convergence and lead to a smaller weight decay penalty.</p>
+<ul>
+<li><p><strong>Bug in the code/Implementation error</strong>: Small
+3D-vision bugs (e.g., a 0.5-pixel center offset or other camera-geometry
+slips) could make the perfectly equivariant solution unreachable, so the
+refiner + head instead exploit a nearby lower-loss but incorrect
+configuration.</p></li>
+<li><p><strong>Limited Pointmap-Head Capacity / Features Are Too
+Nonlinear</strong>: Our synthetic features come from a 3-layer sigmoid
+MLP, while the pointmap estimator is a shallow 1×1-conv ReLU MLP;
+inverting these high-dimensional nonlinear features may simply exceed
+its capacity, so the refiner + head find it easier to “cheat” than to
+realize the ideal zero-loss solution.</p></li>
+<li><p><strong>Single-scene overfitting once equivariance is
+broken</strong>: With strictly 3D-equivariant features, the pointmap
+head is heavily constrained and effectively must perform implicit
+triangulation; once a CNN refiner can encode image-plane coordinates and
+view-specific quirks in a single scene, the model can satisfy the loss
+by memorizing per-pixel geometry (e.g., near-identity cameras +
+meshgrid-like outputs), whereas training jointly across many scenes (as
+in ACE) would make this kind of cheating much harder.</p></li>
+</ul>
+<p><strong>Pretrained Featurizers</strong> Another disappointment with
+this project was the failure of DINO features or other off-the-shelf
+featurizers to work as a direct substitute for our synthetic equivariant
+features. We experimented with MAE and DINO features without success. We
+found that it just overfit fairly easily, similar to the CNN case where
+it would just identify a lower loss solution than the baseline with
+significantly worse performance. The culprit here is likely the same as
+the CNN where the features are either too large and nonlinear for the
+pointmap estimation head and our pointmap estimation head just isn’t
+good at entangling these complex features to where if it can cheat due
+to small deltas in features between views, it’s easier to just cheat by
+overfitting to the minor inconsistencies.</p>
+<figure id="fig:features">
+<img src="graphics/dino-features-vs-synthetic.png" />
+<figcaption>We demonstrate visually the PCA of DINOv2 ViTB features
+compared to our default synthetic equivariant features.</figcaption>
+</figure>
+<h1 id="conclusion">Conclusion</h1>
+<p>We presented a simple ACE style pipeline for unsupervised dense 3D
+understanding that assumes access to 3D equivariant pixel aligned
+features. With a pointmap head and a geometric ray based loss, we showed
+that it is possible to recover camera poses and scene structure from
+random initialization on TartanAir without labels or classical pose
+estimation, and that synthetic equivariant features are enough to get a
+faithful single scene reconstruction with reasonable depth and pose
+errors.</p>
+<p>Our ablations show that this setup can tolerate coarse downsampling
+and moderate noise, but breaks once equivariance and feature structure
+drift too far from the synthetic ideal. Confidence maps, CNN refinement,
+and pretrained DINO or MAE features tend to produce cheating solutions
+with lower loss but worse geometry. A likely reason is that these
+features are too complex and not sufficiently 3D equivariant for our
+simple pointmap head, so the easiest way to reduce loss is to encode
+image plane information or view specific artifacts rather than
+triangulate true 3D structure.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-banani2024probing3dawarenessvisual" class="csl-entry"
+role="listitem">
+Banani, Mohamed El, Amit Raj, Kevis-Kokitsi Maninis, et al. 2024.
+<em>Probing the 3D Awareness of Visual Foundation Models</em>. <a
+href="https://arxiv.org/abs/2404.08636">https://arxiv.org/abs/2404.08636</a>.
+</div>
+<div id="ref-ace" class="csl-entry" role="listitem">
+Brachmann, Eric, Tommaso Cavallari, and Victor Adrian Prisacariu. 2023.
+<em>Accelerated Coordinate Encoding: Learning to Relocalize in Minutes
+Using RGB and Poses</em>. <a
+href="https://arxiv.org/abs/2305.14059">https://arxiv.org/abs/2305.14059</a>.
+</div>
+<div id="ref-acezero" class="csl-entry" role="listitem">
+Brachmann, Eric, Jamie Wynn, Shuai Chen, et al. 2024. <em>Scene
+Coordinate Reconstruction: Posing of Image Collections via Incremental
+Learning of a Relocalizer</em>. <a
+href="https://arxiv.org/abs/2404.14351">https://arxiv.org/abs/2404.14351</a>.
+</div>
+<div id="ref-he2021maskedautoencodersscalablevision" class="csl-entry"
+role="listitem">
+He, Kaiming, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollár, and
+Ross Girshick. 2021. <em>Masked Autoencoders Are Scalable Vision
+Learners</em>. <a
+href="https://arxiv.org/abs/2111.06377">https://arxiv.org/abs/2111.06377</a>.
+</div>
+<div id="ref-luo2024diffusionhyperfeaturessearchingtime"
+class="csl-entry" role="listitem">
+Luo, Grace, Lisa Dunlap, Dong Huk Park, Aleksander Holynski, and Trevor
+Darrell. 2024. <em>Diffusion Hyperfeatures: Searching Through Time and
+Space for Semantic Correspondence</em>. <a
+href="https://arxiv.org/abs/2305.14334">https://arxiv.org/abs/2305.14334</a>.
+</div>
+<div id="ref-mildenhall2020nerfrepresentingscenesneural"
+class="csl-entry" role="listitem">
+Mildenhall, Ben, Pratul P. Srinivasan, Matthew Tancik, Jonathan T.
+Barron, Ravi Ramamoorthi, and Ren Ng. 2020. <em>NeRF: Representing
+Scenes as Neural Radiance Fields for View Synthesis</em>. <a
+href="https://arxiv.org/abs/2003.08934">https://arxiv.org/abs/2003.08934</a>.
+</div>
+<div id="ref-oquab2024dinov2learningrobustvisual" class="csl-entry"
+role="listitem">
+Oquab, Maxime, Timothée Darcet, Théo Moutakanni, et al. 2024.
+<em>DINOv2: Learning Robust Visual Features Without Supervision</em>. <a
+href="https://arxiv.org/abs/2304.07193">https://arxiv.org/abs/2304.07193</a>.
+</div>
+<div id="ref-clip" class="csl-entry" role="listitem">
+Radford, Alec, Jong Wook Kim, Chris Hallacy, et al. 2021. <em>Learning
+Transferable Visual Models from Natural Language Supervision</em>. <a
+href="https://arxiv.org/abs/2103.00020">https://arxiv.org/abs/2103.00020</a>.
+</div>
+<div id="ref-radford2019language" class="csl-entry" role="listitem">
+Radford, Alec, Jeff Wu, Rewon Child, David Luan, Dario Amodei, and Ilya
+Sutskever. 2019. <em>Language Models Are Unsupervised Multitask
+Learners</em>.
+</div>
+<div id="ref-colmap" class="csl-entry" role="listitem">
+Schönberger, Johannes Lutz, and Jan-Michael Frahm. 2016. <span>“<span
+class="nocase">Structure-from-Motion Revisited</span>.”</span>
+<em>Conference on Computer Vision and Pattern Recognition (CVPR)</em>.
+</div>
+<div id="ref-tang2023emergentcorrespondenceimagediffusion"
+class="csl-entry" role="listitem">
+Tang, Luming, Menglin Jia, Qianqian Wang, Cheng Perng Phoo, and Bharath
+Hariharan. 2023. <em>Emergent Correspondence from Image Diffusion</em>.
+<a
+href="https://arxiv.org/abs/2306.03881">https://arxiv.org/abs/2306.03881</a>.
+</div>
+<div id="ref-wiedemer2025videomodelszeroshotlearners" class="csl-entry"
+role="listitem">
+Wiedemer, Thaddäus, Yuxuan Li, Paul Vicol, et al. 2025. <em>Video Models
+Are Zero-Shot Learners and Reasoners</em>. <a
+href="https://arxiv.org/abs/2509.20328">https://arxiv.org/abs/2509.20328</a>.
+</div>
+<div id="ref-you2025multiviewequivarianceimproves3d" class="csl-entry"
+role="listitem">
+You, Yang, Yixin Li, Congyue Deng, Yue Wang, and Leonidas Guibas. 2025.
+<em>Multiview Equivariance Improves 3D Correspondence Understanding with
+Minimal Feature Finetuning</em>. <a
+href="https://arxiv.org/abs/2411.19458">https://arxiv.org/abs/2411.19458</a>.
+</div>
+<div id="ref-zhang2024tellingleftrightidentifying" class="csl-entry"
+role="listitem">
+Zhang, Junyi, Charles Herrmann, Junhwa Hur, et al. 2024. <em>Telling
+Left from Right: Identifying Geometry-Aware Semantic
+Correspondence</em>. <a
+href="https://arxiv.org/abs/2311.17034">https://arxiv.org/abs/2311.17034</a>.
+</div>
+</div>
+</body>
+</html>
